@@ -4,8 +4,8 @@ const create = async (name) => {
   await sql`INSERT INTO shopping_lists (name) VALUES (${ name })`;
 };
 
-const findAllActiveShoppinglists = async () => {
+const findAllActiveShoppingLists = async () => {
   return await sql`SELECT * FROM shopping_lists WHERE active = TRUE`;
 };
 
-export { create, findAllActiveShoppinglists };
+export { create, findAllActiveShoppingLists };
