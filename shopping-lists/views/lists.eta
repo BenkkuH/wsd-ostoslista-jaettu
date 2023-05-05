@@ -1,0 +1,16 @@
+<h1>Shopping lists</h1>
+
+<h2>Add a shopping list</h2>
+
+<form method="POST" action="/lists">
+  New shopping list name: <input type="text" name="name" />
+  <input type="submit" value="Add a new shopping list!" />
+</form>
+
+<h2>Active shopping lists</h2>
+
+<ul>
+<% it.shopping_lists.forEach((list) => { %>
+  <li><%= list.name %></li>
+<% }); %>
+</ul>
