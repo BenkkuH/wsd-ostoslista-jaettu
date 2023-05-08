@@ -4,7 +4,7 @@ import * as listService from "../services/shoppingListService.js";
 const responseDetails = {
   headers: { "Content-Type": "text/html;charset=UTF-8" },
 };
-
+//lähtee requestUtils.js kansioon joskus
 const redirectTo = (path) => {
   return new Response(`Redirecting to ${path}.`, {
     status: 303,

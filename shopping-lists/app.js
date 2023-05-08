@@ -25,4 +25,6 @@ const handleRequest = async (request) => {
   }
 };
 
+//muista lisätä toiminnallisuus, jolla items-polkuun viitataan 
+
 serve(handleRequest, { port: 7777 });
