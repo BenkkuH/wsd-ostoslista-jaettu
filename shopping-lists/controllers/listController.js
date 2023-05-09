@@ -20,7 +20,7 @@ const viewLists = async (request) => {
   const data = {
     lists: await listService.findAllActiveShoppingLists(),
   };
-
+// joku error 24:29 renderfilessa?
   return new Response(await renderFile("lists.eta", data), responseDetails);
 };
 

@@ -15,3 +15,5 @@ a form for adding items to the shopping list, and a list of existing items in th
     <li><%= item.name %><form method="POST" action="/lists/<%= it.list.id %>/items/<%= it.item.id %>/collect"><input type="submit" name="collect" value="Mark collected!"/></form></li>
 <% }); %>
 </ul>
+
+<a href="/lists">Shopping lists</a>

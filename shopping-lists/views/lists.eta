@@ -12,7 +12,11 @@
 <ul>
 <% it.shopping_lists.forEach((list) => { %>
   <li>
-    <a href="/lists/<%= list.id %>"><%= list.name %></a>
+    <a href="/lists/<%= it.list.id %>"><%= list.name %></a>
   </li>
 <% }); %>
 </ul>
+
+
+<!--Uudelleenohjaus ei vielä toimi - ohjaa aina /lists :(-->
+<a href="/">Main page</a>

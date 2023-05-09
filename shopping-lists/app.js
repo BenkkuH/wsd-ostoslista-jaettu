@@ -10,7 +10,7 @@ configure({
 
 const handleRequest = async (request) => {
   const url = new URL(request.url);
-
+// 19:12 joku errori:TypeError: Cannot read properties of undefined (reading 'forEach')
   if (url.pathname === "/" && request.method === "GET") {
     return requestUtils.redirectTo("/lists");
   } else if (url.pathname === "/lists" && request.method === "POST") {
