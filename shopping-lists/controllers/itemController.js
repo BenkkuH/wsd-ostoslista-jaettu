@@ -1,5 +1,6 @@
 import { renderFile } from "https://deno.land/x/eta@v2.0.0/mod.ts";
 import * as itemService from "../services/itemService.js";
+import * as requestUtils from "../utils/requestUtils.js";
 
 const responseDetails = {
   headers: { "Content-Type": "text/html;charset=UTF-8" },
@@ -14,7 +15,7 @@ const addItem = async (request) => {
 
   await itemService.create(name);
 
-  return redirectTo(`/lists/${id}}`);
+  return requestUtils.redirectTo(`/lists/${id}`);
 };
 
 const viewItems = async (request) => {
@@ -25,4 +26,13 @@ const viewItems = async (request) => {
   return new Response(await renderFile("list.eta", data), responseDetails);
 };
 
-export { addItem, viewItems };
+const collectItem = async (request) => {
+  const url = new URL(request.url);
+  const urlParts = url.pathname.split("/");
+  const id = urlParts[2];
+  await itemService.collectById(id);
+
+  return await requestUtils.redirectTo(`/lists/${id}}`);
+};
+
+export { addItem, collectItem, viewItems };

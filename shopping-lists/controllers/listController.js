@@ -1,17 +1,9 @@
 import { renderFile } from "https://deno.land/x/eta@v2.0.0/mod.ts";
 import * as listService from "../services/shoppingListService.js";
+import * as requestUtils from "../utils/requestUtils.js";
 
 const responseDetails = {
   headers: { "Content-Type": "text/html;charset=UTF-8" },
-};
-//lähtee requestUtils.js kansioon joskus
-const redirectTo = (path) => {
-  return new Response(`Redirecting to ${path}.`, {
-    status: 303,
-    headers: {
-      "Location": path,
-    },
-  });
 };
 
 const addList = async (request) => {
@@ -20,9 +12,10 @@ const addList = async (request) => {
 
   await listService.create(name);
 
-  return redirectTo("/lists");
+  return requestUtils.redirectTo("/lists");
 };
 
+//miksi request?????>:)
 const viewLists = async (request) => {
   const data = {
     lists: await listService.findAllActiveShoppingLists(),

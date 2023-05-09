@@ -10,6 +10,8 @@ a form for adding items to the shopping list, and a list of existing items in th
 
 <ul>
 <% it.shopping_list_items.forEach((item) => { %>
-    <li><%= item.name %></li>
+//Jotenkin pitäs järjestää ORDER BY ASC
+  if (item)
+    <li><%= item.name %><form method="POST" action="/lists/<%= it.list.id %>/items/<%= it.item.id %>/collect"><input type="submit" name="collect" value="Mark collected!"/></form></li>
 <% }); %>
 </ul>

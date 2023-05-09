@@ -5,7 +5,7 @@ const create = async (name) => {
 };
 
 const findAllActiveShoppingLists = async () => {
-  return await sql`SELECT * FROM shopping_lists WHERE active = TRUE`;
+  return await sql`SELECT * FROM shopping_lists WHERE active = true`;
 };
 
 export { create, findAllActiveShoppingLists };
