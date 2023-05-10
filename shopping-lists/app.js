@@ -21,6 +21,8 @@ const handleRequest = async (request) => {
     return await itemController.viewItems(request);
   } else if (url.pathname.match("lists/[0-9]+/deactivate") && request.method === "POST") {
     return await listController.viewItems(request);
+  } else if (url.pathname.match("/lists/[0-9]+/items/[0-9]+/collect ") && request.method === "POST") {
+    return await itemController.collectItem(request);
   } else {
     return new Response("Not found", { status: 404 });
   }

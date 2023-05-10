@@ -25,23 +25,11 @@ const viewLists = async (request) => {
 };
 
 const deactivateList = async (request) => {
-  const formData = await request.formData();
-  const name = formData.get("deactivate");
-
-  await listService.deactivateById(name);
+  const url = new URL(request.url);
+  const urlParts = url.pathname.split("/");
+  await listService.deactivateById(urlParts[2]);
 
   return requestUtils.redirectTo("/lists");
 };
-
-/*
-const collectItem = async (request) => {
-  const url = new URL(request.url);
-  const urlParts = url.pathname.split("/");
-  const id = urlParts[2];
-  await itemService.collectById(id);
-
-  return await requestUtils.redirectTo(`/lists/${id}}`);
-};
-*/
 
 export { addList, deactivateList, viewLists };

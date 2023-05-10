@@ -9,7 +9,7 @@ const create = async (name) => {
 };
 
 const findAllItems = async () => {
-  return await sql`SELECT * FROM shopping_list_item`;
+  return await sql`SELECT * FROM shopping_list_items ORDER BY collected, name ASC`;
 };
 
 export { create, collectById, findAllItems };

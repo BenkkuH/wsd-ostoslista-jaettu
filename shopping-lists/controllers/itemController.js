@@ -18,7 +18,7 @@ const addItem = async (request) => {
   return requestUtils.redirectTo(`/lists/${id}`);
 };
 
-const viewItems = async (request) => {
+const viewItems = async (request) => { //Miksi requesti? >:/
   const data = {
     items: await itemService.findAllItems(),
   };

@@ -13,7 +13,7 @@
 <% it.shopping_lists.forEach((list) => { %>
   <li>
     <a href="/lists/<%= it.list.id %>"><%= list.name %></a>
-    <form method="POST" action="/lists/<%= it.list.id %>/deactivate"><input type="submit" name="deactivate" value="Deactivate list!"/></form>
+    <form method="POST" action="/lists/<%= it.list.id %>/deactivate"><input type="submit" value="Deactivate list!"/></form>
   </li>
 <% }); %>
 </ul>
