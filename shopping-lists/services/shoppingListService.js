@@ -8,4 +8,8 @@ const findAllActiveShoppingLists = async () => {
   return await sql`SELECT * FROM shopping_lists WHERE active = true`;
 };
 
-export { create, findAllActiveShoppingLists };
+const deactivateById = async (id) => {
+  await sql`UPDATE shopping_list SET active = false WHERE id = ${ id }`;
+};
+
+export { create, deactivateById, findAllActiveShoppingLists };

@@ -24,4 +24,24 @@ const viewLists = async (request) => {
   return new Response(await renderFile("lists.eta", data), responseDetails);
 };
 
-export { addList, viewLists };
+const deactivateList = async (request) => {
+  const formData = await request.formData();
+  const name = formData.get("deactivate");
+
+  await listService.deactivateById(name);
+
+  return requestUtils.redirectTo("/lists");
+};
+
+/*
+const collectItem = async (request) => {
+  const url = new URL(request.url);
+  const urlParts = url.pathname.split("/");
+  const id = urlParts[2];
+  await itemService.collectById(id);
+
+  return await requestUtils.redirectTo(`/lists/${id}}`);
+};
+*/
+
+export { addList, deactivateList, viewLists };
