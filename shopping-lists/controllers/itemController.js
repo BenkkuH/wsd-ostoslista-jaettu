@@ -20,7 +20,7 @@ const addItem = async (request) => {
 
 const viewItems = async (request) => { //Miksi requesti? >:/
   const data = {
-    items: await itemService.findAllItems(),
+    shopping_list_items: await itemService.findAllItems(),
   };
 
   return new Response(await renderFile("list.eta", data), responseDetails);

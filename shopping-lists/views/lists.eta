@@ -1,3 +1,7 @@
+<!--GET request to /lists shows a form that can be used to add shopping lists, and a list of existing shopping lists.
+ Only shopping lists that are active are shown (active as in the value of active in the database is true).-->
+<% layout("./layouts/layout.eta") %>
+
 <h1>Shopping lists</h1>
 
 <h2>Add a shopping list</h2>
@@ -9,11 +13,16 @@
 
 <h2>Active shopping lists</h2>
 
+<!--In the list of existing shopping lists, shown for a GET request to /lists,
+next or below to each shopping list is a submit button with the text Deactivate list!. 
+The button is within a form; clicking the button makes a POST request to /lists/{id}/deactivate, where {id} corresponds 
+to the database id of the associated shopping list. This deactivates the shopping list,
+i.e. sets the value of active to false, after which the user is redirected to /lists.-->
 <ul>
 <% it.shopping_lists.forEach((list) => { %>
   <li>
-    <a href="/lists/<%= it.list.id %>"><%= list.name %></a>
-    <form method="POST" action="/lists/<%= it.list.id %>/deactivate"><input type="submit" value="Deactivate list!"/></form>
+    <a href="/lists/<%= list.id %>"><%= list.name %></a>
+    <form method="POST" action="/lists/<%= list.id %>/deactivate"><input type="submit" value="Deactivate list!"/></form>
   </li>
 <% }); %>
 </ul>

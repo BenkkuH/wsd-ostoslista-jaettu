@@ -20,7 +20,7 @@ const handleRequest = async (request) => {
   } else if (url.pathname.match("lists/[0-9]+") && request.method === "GET") {
     return await itemController.viewItems(request);
   } else if (url.pathname.match("lists/[0-9]+/deactivate") && request.method === "POST") {
-    return await listController.viewItems(request);
+    return await listController.deactivateList(request);
   } else if (url.pathname.match("/lists/[0-9]+/items/[0-9]+/collect ") && request.method === "POST") {
     return await itemController.collectItem(request);
   } else {

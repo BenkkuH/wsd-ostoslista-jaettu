@@ -1,5 +1,6 @@
 <!--The shopping list -specific page shows the name of the shopping list, 
 a form for adding items to the shopping list, and a list of existing items in the shopping list.-->
+<% layout("./layouts/layout.eta") %>
 
 <h1><%= it.list.name %></h1>
 
@@ -8,12 +9,16 @@ a form for adding items to the shopping list, and a list of existing items in th
   <input type="submit" value="Add!" />
 </form>
 
+<!--The items in the shopping list are shown in alphabetic order so that the list first contains all 
+uncollected items in alphabetic order, followed by all collected items in alphabetic order. If the item
+has been collected, it's name is striked though.-->
 <ul>
 <% it.shopping_list_items.forEach((item) => { %>
-  <% if (it.item.collected === FALSE) { %>
-    <li><%= item.name %><form method="POST" action="/lists/<%= it.list.id %>/items/<%= it.item.id %>/collect"><input type="submit" value="Mark collected!"/></form></li>
-    <%} else {%>
+  <% if (item.collected === true) { %>
     <li><del><%= item.name %></del></li>
+    <%} else {%>
+    <li><%= item.name %><form method="POST" action="/lists/<%= it.list.id %>/items/<%= it.item.id %>/collect"><input type="submit" value="Mark collected!"/></form></li>
+  <% } %>
 <% }); %>
 </ul>
 
