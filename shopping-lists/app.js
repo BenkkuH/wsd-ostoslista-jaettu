@@ -27,7 +27,7 @@ const handleRequest = async (request) => {
     return new Response("Not found", { status: 404 });
   }
 };
-
+//polku index-etaan!
 //muista lisätä toiminnallisuus, jolla items-polkuun viitataan 
 
 serve(handleRequest, { port: 7777 });

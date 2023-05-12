@@ -1,0 +1,16 @@
+<!-- The main page at / shows statistics for the application. Namely, the page contains the number of created shopping lists 
+and the number of created items. These are shown in a list as follows (in the following example, there are 3 shopping lists 
+and 5 shopping list items). The numbers include both the active and deactive shopping lists and the collected and uncollected items.
+If there are no shopping lists in the database, instead of the above statistics, the text "No shopping lists yet." is shown. -->
+
+<% layout("./layouts/layout.eta") %>
+
+<a href="/lists">Lists</a>
+
+<% if (!it.shopping_lists) { %>
+    <p>No shopping lists yet.</p>
+<%} else { %>
+    <ul>
+        <li>Shopping lists: <% %></li>
+        <li></li>
+    </ul>

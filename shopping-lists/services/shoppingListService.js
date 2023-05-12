@@ -11,5 +11,9 @@ const findAllActiveShoppingLists = async () => {
 const deactivateById = async (id) => {
   await sql`UPDATE shopping_list SET active = false WHERE id = ${ id }`;
 };
+// listaa pääsivulle ostoslistojen lukumäärän
+const countShoppingLists = async () => {
+  await sql`SELECT COUNT(id) from shopping_list`;
+};
 
-export { create, deactivateById, findAllActiveShoppingLists };
+export { countShoppingLists, create, deactivateById, findAllActiveShoppingLists };

@@ -17,7 +17,7 @@ has been collected, it's name is striked though.-->
   <% if (item.collected === true) { %>
     <li><del><%= item.name %></del></li>
     <%} else {%>
-    <li><%= item.name %><form method="POST" action="/lists/<%= it.list.id %>/items/<%= it.item.id %>/collect"><input type="submit" value="Mark collected!"/></form></li>
+    <li><%= item.name %><form method="POST" action="/lists/<%= list.id %>/items/<%= item.id %>/collect"><input type="submit" value="Mark collected!"/></form></li>
   <% } %>
 <% }); %>
 </ul>

@@ -32,4 +32,6 @@ const deactivateList = async (request) => {
   return requestUtils.redirectTo("/lists");
 };
 
+//lisää toiminnaliisuus, joka kutsuu shoppingListServicen countShoppingList-funktiota!
+
 export { addList, deactivateList, viewLists };
