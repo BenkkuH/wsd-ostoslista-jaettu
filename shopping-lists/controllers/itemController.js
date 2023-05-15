@@ -23,7 +23,7 @@ const viewItems = async (request) => { //Miksi requesti? >:/
     shopping_list_items: await itemService.findAllItems(),
   };
 
-  return new Response(await renderFile("list.eta", data), responseDetails);
+  return new Response(await renderFile("list.eta", data), responseDetails); // Renderfilessa joku error?
 };
 
 const collectItem = async (request) => {

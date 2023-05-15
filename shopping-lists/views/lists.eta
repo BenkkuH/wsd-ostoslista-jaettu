@@ -11,22 +11,27 @@
   <input type="submit" value="Add a new shopping list!" />
 </form>
 
-<h2>Active shopping lists</h2>
+<% if (!it.shopping_lists) { %> //Tarkista löytääkö oikean taulukon pelkästään tällä (it.shopping_lists), vai vaatiiko jonkun 'id' parametrin?
+    <p>No shopping lists yet.</p>
+<%} else {%>
 
-<!--In the list of existing shopping lists, shown for a GET request to /lists,
-next or below to each shopping list is a submit button with the text Deactivate list!. 
-The button is within a form; clicking the button makes a POST request to /lists/{id}/deactivate, where {id} corresponds 
-to the database id of the associated shopping list. This deactivates the shopping list,
-i.e. sets the value of active to false, after which the user is redirected to /lists.-->
-<ul>
-<% it.shopping_lists.forEach((list) => { %>
-  <li>
-    <a href="/lists/<%= list.id %>"><%= list.name %></a>
-    <form method="POST" action="/lists/<%= list.id %>/deactivate"><input type="submit" value="Deactivate list!"/></form>
-  </li>
-<% }); %>
-</ul>
+  <h2>Active shopping lists</h2>
 
+  <!--In the list of existing shopping lists, shown for a GET request to /lists,
+  next or below to each shopping list is a submit button with the text Deactivate list!. 
+  The button is within a form; clicking the button makes a POST request to /lists/{id}/deactivate, where {id} corresponds 
+  to the database id of the associated shopping list. This deactivates the shopping list,
+  i.e. sets the value of active to false, after which the user is redirected to /lists.-->
+  <ul>
+  <% it.shopping_lists.forEach((list) => { %>
+    <li>
+      <a href="/lists/<%= list.id %>"><%= list.name %></a>
+      <form method="POST" action="/lists/<%= list.id %>/deactivate"><input type="submit" value="Deactivate list!"/></form>
+    </li>
+  <% }); %>
+  </ul>
+
+<% } %>
 
 <!--Uudelleenohjaus ei vielä toimi - ohjaa aina /lists :(-->
 <a href="/">Main page</a>

@@ -24,6 +24,14 @@ const viewLists = async (request) => {
   return new Response(await renderFile("lists.eta", data), responseDetails);
 };
 
+const countLists = async (request) => {
+  const data = {
+    shopping_lists_sum: await listService.countShoppingLists(),
+  };
+
+  return new Response(await renderFile("index.eta", data), responseDetails);
+};
+
 const deactivateList = async (request) => {
   const url = new URL(request.url);
   const urlParts = url.pathname.split("/");
@@ -32,6 +40,4 @@ const deactivateList = async (request) => {
   return requestUtils.redirectTo("/lists");
 };
 
-//lisää toiminnaliisuus, joka kutsuu shoppingListServicen countShoppingList-funktiota!
-
-export { addList, deactivateList, viewLists };
+export { addList, countLists, deactivateList, viewLists };
