@@ -18,10 +18,12 @@ const addItem = async (request) => {
   return requestUtils.redirectTo(`/lists/${id}`);
 };
 
-const viewItems = async (request) => { //Miksi requesti? >:/
+const viewItems = async (request) => { //
   const data = {
     shopping_list_items: await itemService.findAllItems(),
   };
+  console.log(data);
+  console.log(data.shopping_list_items.lenght)
 
   return new Response(await renderFile("list.eta", data), responseDetails); // Renderfilessa joku error?
 };
