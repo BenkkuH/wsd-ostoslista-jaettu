@@ -23,7 +23,7 @@ const viewLists = async () => {
 
   return new Response(await renderFile("lists.eta", data), responseDetails);
 };
-//miksi request????
+
 const countLists = async () => {
   const data = {
     shopping_lists_sum: await listService.countShoppingLists(),

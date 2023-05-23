@@ -18,6 +18,8 @@ const handleRequest = async (request) => {
   } else if (url.pathname === "/lists" && request.method === "GET") {
     return await listController.viewLists(request);
   } else if (url.pathname.match("lists/[0-9]+") && request.method === "GET") {
+    return await itemController.checkItems(request);
+  } else if (url.pathname.match("lists/[0-9]+") && request.method === "GET") {
     return await itemController.viewItems(request);
   } else if (url.pathname.match("lists/[0-9]+/deactivate") && request.method === "POST") {
     return await listController.deactivateList(request);

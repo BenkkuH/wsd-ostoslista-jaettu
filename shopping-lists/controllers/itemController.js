@@ -18,14 +18,23 @@ const addItem = async (request) => {
   return requestUtils.redirectTo(`/lists/${id}`);
 };
 
-const viewItems = async (request) => { //
+const checkItems = async (request) => { 
+  const url = new URL(request.url);
+  const urlParts = url.pathname.split("/");
+
+  const data = {
+    shopping_list_items: await itemService.checkIfListIsEmpty(urlParts[2]),
+  };
+  console.log(data);
+  return new Response(await renderFile("list.eta", data), responseDetails); // Renderfilessa joku error?
+};
+
+const viewItems = async () => {
   const data = {
     shopping_list_items: await itemService.findAllItems(),
   };
-  console.log(data);
-  console.log(data.shopping_list_items.lenght)
 
-  return new Response(await renderFile("list.eta", data), responseDetails); // Renderfilessa joku error?
+  return new Response(await renderFile("list.eta", data), responseDetails);
 };
 
 const collectItem = async (request) => {
@@ -37,4 +46,4 @@ const collectItem = async (request) => {
   return await requestUtils.redirectTo(`/lists/${id}}`);
 };
 
-export { addItem, collectItem, viewItems };
+export { addItem, checkItems, collectItem, viewItems };
