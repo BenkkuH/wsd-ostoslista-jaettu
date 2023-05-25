@@ -9,6 +9,8 @@ a form for adding items to the shopping list, and a list of existing items in th
   <input type="submit" value="Add!" />
 </form>-->
 
+<p>moi</p>
+
 <% if (!it.shopping_list_items) { %>
     <p>No items here yet.</p>
 <%} else {%>
