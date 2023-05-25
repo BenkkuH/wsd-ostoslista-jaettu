@@ -10,6 +10,7 @@ a form for adding items to the shopping list, and a list of existing items in th
 </form>-->
 
 <p>moi</p>
+<p>moi</p>
 
 <% if (!it.shopping_list_items) { %>
     <p>No items here yet.</p>
