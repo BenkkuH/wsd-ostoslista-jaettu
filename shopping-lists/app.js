@@ -10,7 +10,6 @@ configure({
 
 const handleRequest = async (request) => {
   const url = new URL(request.url);
-// 19:12 joku errori:TypeError: Cannot read properties of undefined (reading 'forEach')
   if (url.pathname === "/" && request.method === "GET") {
     return  await listController.countLists(request);
   } else if (url.pathname === "/lists" && request.method === "POST") {
@@ -29,9 +28,9 @@ const handleRequest = async (request) => {
     return new Response("Not found", { status: 404 });
   }
 };
-//polku index-etaan!
+
 /*} else if (url.pathname.match("lists/[0-9]+") && request.method === "GET") {
     return await itemController.viewItems(request);*/
-//muista lisätä toiminnallisuus, jolla items-polkuun viitataan 
+// Tällä kutsulla ja checkItems -kutsulla on samat ehdot ja polut, niin molemmat ei voi toimia....
 
 serve(handleRequest, { port: 7777 });
