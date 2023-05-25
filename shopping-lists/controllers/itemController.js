@@ -13,7 +13,7 @@ const addItem = async (request) => {
   const formData = await request.formData();
   const name = formData.get("name");
 
-  await itemService.create(name);
+  await itemService.create(name, id);
 
   return requestUtils.redirectTo(`/lists/${id}`);
 };
@@ -25,6 +25,7 @@ const checkItems = async (request) => {
   const data = {
     shopping_list_items: await itemService.checkIfListIsEmpty(urlParts[2]),
   };
+  console.log("ollaan checkItemsissa")
   console.log(data);
   return new Response(await renderFile("list.eta", data), responseDetails); // Renderfilessa joku error?
 };

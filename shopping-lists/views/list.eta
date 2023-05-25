@@ -2,12 +2,12 @@
 a form for adding items to the shopping list, and a list of existing items in the shopping list.-->
 <% layout("./layouts/layout.eta") %>
 
-<h1><%= it.list.name %></h1>
+<!--<h1><%= it.list.name %></h1>-->
 
-<form method="POST" action="/lists/<%= it.list.id %>/items">
+<!--<form method="POST" action="/lists/<%= it.list.id %>/items">
   Add an item to a shopping list: <input type="text" name="name" />
   <input type="submit" value="Add!" />
-</form>
+</form>-->
 
 <% if (!it.shopping_list_items) { %>
     <p>No items here yet.</p>
