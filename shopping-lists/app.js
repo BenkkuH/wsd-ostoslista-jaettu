@@ -19,8 +19,6 @@ const handleRequest = async (request) => {
     return await listController.viewLists(request);
   } else if (url.pathname.match("lists/[0-9]+") && request.method === "GET") {
     return await itemController.checkItems(request);
-  } else if (url.pathname.match("lists/[0-9]+") && request.method === "GET") {
-    return await itemController.viewItems(request);
   } else if (url.pathname.match("/lists/[0-9]+/items") && request.method === "POST") {
     return await itemController.addItem(request);
   } else if (url.pathname.match("lists/[0-9]+/deactivate") && request.method === "POST") {
@@ -32,6 +30,8 @@ const handleRequest = async (request) => {
   }
 };
 //polku index-etaan!
+/*} else if (url.pathname.match("lists/[0-9]+") && request.method === "GET") {
+    return await itemController.viewItems(request);*/
 //muista lisätä toiminnallisuus, jolla items-polkuun viitataan 
 
 serve(handleRequest, { port: 7777 });
