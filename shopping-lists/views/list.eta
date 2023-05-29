@@ -9,10 +9,7 @@ a form for adding items to the shopping list, and a list of existing items in th
   <input type="submit" value="Add!" />
 </form>-->
 
-<p>moi</p>
-<p>moi</p>
-
-<% if (!it.shopping_list_items) { %>
+<% if (it.shopping_list_items === undefined || it.shopping_list_items.lenght == 0) { %>
     <p>No items here yet.</p>
 <%} else {%>
   /*The items in the shopping list are shown in alphabetic order so that the list first contains all 
@@ -23,7 +20,7 @@ a form for adding items to the shopping list, and a list of existing items in th
     <% if (item.collected === true) { %>
       <li><del><%= item.name %></del></li>
       <%} else {%>
-      <li><%= item.name %><form method="POST" action="/lists/<%= list.id %>/items/<%= item.id %>/collect"><input type="submit" value="Mark collected!"/></form></li>
+      <li><%= item.name %><form method="POST" action="/lists/<%= item.shopping_list_id %>/items/<%= item.id %>/collect"><input type="submit" value="Mark collected!"/></form></li>
     <% } %>
   <% }); %>
   </ul>

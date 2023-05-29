@@ -13,15 +13,15 @@ const findAllItems = async () => {
 };
 */
 const checkIfListIsEmpty = async (shopping_list_id) => {
-  const rows = await sql`
+  return await sql`
     SELECT * FROM shopping_list_items
-    WHERE shopping_list_id = ${shopping_list_id}`;
+    WHERE shopping_list_id = ${shopping_list_id} ORDER BY collected, name ASC`;
 
-  if (rows && rows.length > 0) {
+  /*if (rows && rows.length > 0) {
     return rows;
   }
 
-  return false;
+  return false;*/
 };
 
 export { checkIfListIsEmpty, create, collectById};

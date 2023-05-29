@@ -28,7 +28,7 @@ const countLists = async () => {
   const data = {
     shopping_lists_sum: await listService.countShoppingLists(),
   };
-
+  console.log(data);
   return new Response(await renderFile("index.eta", data), responseDetails);
 };
 

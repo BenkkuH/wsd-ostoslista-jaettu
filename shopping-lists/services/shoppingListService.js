@@ -13,7 +13,8 @@ const deactivateById = async (id) => {
 };
 // listaa pääsivulle ostoslistojen lukumäärän
 const countShoppingLists = async () => {
-  await sql`SELECT COUNT(id) FROM shopping_lists`;
+  const result = await sql`SELECT COUNT(id) FROM shopping_lists`;
+  return result[0].count;
 };
 
 export { countShoppingLists, create, deactivateById, findAllActiveShoppingLists };

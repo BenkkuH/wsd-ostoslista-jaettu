@@ -11,7 +11,7 @@ If there are no shopping lists in the database, instead of the above statistics,
     <p>No shopping lists yet.</p>
 <%} else {%>
     <ul>
-        <li>Shopping lists: <% it.shopping_list_sum %></li>
+        <li>Shopping lists: <% it.shopping_list_sum.count %></li>
         <li>Shopping list items: <%  %></li>
     </ul>
 <% } %>
