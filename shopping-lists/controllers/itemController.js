@@ -29,15 +29,7 @@ const checkItems = async (request) => {
   console.log(data);
   return new Response(await renderFile("list.eta", data), responseDetails); 
 };
-/* Turha, jos checkItems tekee saman?
-const viewItems = async () => {
-  const data = {
-    shopping_list_items: await itemService.findAllItems(),
-  };
 
-  return new Response(await renderFile("list.eta", data), responseDetails);
-};
-*/
 const collectItem = async (request) => {
   const url = new URL(request.url);
   const urlParts = url.pathname.split("/");
