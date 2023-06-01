@@ -18,6 +18,15 @@ const addItem = async (request) => {
   return requestUtils.redirectTo(`/lists/${id}`);
 };
 
+/*const addTask = async (request) => {
+  const formData = await request.formData();
+  const name = formData.get("name");
+
+  await taskService.create(name);
+
+  return requestUtils.redirectTo("/tasks");
+};*/
+
 const checkItems = async (request) => { 
   const url = new URL(request.url);
   const urlParts = url.pathname.split("/");
