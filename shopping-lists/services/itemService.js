@@ -7,11 +7,7 @@ const collectById = async (id) => {
 const create = async (name, id) => {
   await sql`INSERT INTO shopping_list_items (name, shopping_list_id) VALUES (${ name }, ${id})`;
 };
-/*
-const findAllItems = async () => {
-  return await sql`SELECT * FROM shopping_list_items ORDER BY collected, name ASC`;
-};
-*/
+
 const checkIfListIsEmpty = async (shopping_list_id) => {
   return await sql`
     SELECT * FROM shopping_list_items

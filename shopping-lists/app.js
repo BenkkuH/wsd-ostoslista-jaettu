@@ -29,6 +29,8 @@ const handleRequest = async (request) => {
   }
 };
 
+///lists/<%= item.shopping_list_id %>/items/<%= item.id %>/collect"
+
 /*} else if (url.pathname.match("lists/[0-9]+") && request.method === "GET") {
     return await itemController.viewItems(request);*/
 // Tällä kutsulla ja checkItems -kutsulla on samat ehdot ja polut, niin molemmat ei voi toimia....

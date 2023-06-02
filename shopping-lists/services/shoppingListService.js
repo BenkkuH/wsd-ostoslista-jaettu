@@ -8,6 +8,12 @@ const findAllActiveShoppingLists = async () => {
   return await sql`SELECT * FROM shopping_lists WHERE active = true`;
 };
 
+const findCurrent = async (id) => {
+  const result = await sql`SELECT * FROM shopping_lists WHERE id = ${id}`;
+  return result[0]; // Return the first item from the result array
+};
+
+
 const deactivateById = async (id) => {
   await sql`UPDATE shopping_lists SET active = false WHERE id = ${ id }`;
 };
@@ -17,4 +23,4 @@ const countShoppingLists = async () => {
   return result[0].count;
 };
 
-export { countShoppingLists, create, deactivateById, findAllActiveShoppingLists };
+export { countShoppingLists, create, deactivateById, findCurrent, findAllActiveShoppingLists };
