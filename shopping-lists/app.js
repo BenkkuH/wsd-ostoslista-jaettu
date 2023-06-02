@@ -28,7 +28,7 @@ const handleRequest = async (request) => {
     return new Response("Not found", { status: 404 });
   }
 };
-
+// Vois heittää addItemin ja collection toisi päin...?
 ///lists/<%= item.shopping_list_id %>/items/<%= item.id %>/collect"
 
 /*} else if (url.pathname.match("lists/[0-9]+") && request.method === "GET") {
