@@ -38,6 +38,7 @@ const collectItem = async (request) => {
   const urlParts = url.pathname.split("/");
   const shopping_list_id = urlParts[2];
   const item_id = urlParts[4];
+  console.log("ollaan collectItemissa");
   console.log(item_id);
   console.log(shopping_list_id);
   await itemService.collectById(item_id);
