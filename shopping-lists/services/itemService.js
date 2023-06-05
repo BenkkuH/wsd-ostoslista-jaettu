@@ -14,4 +14,9 @@ const checkIfListIsEmpty = async (shopping_list_id) => {
     WHERE shopping_list_id = ${shopping_list_id} ORDER BY collected, name ASC`;
 };
 
-export { checkIfListIsEmpty, create, collectById};
+const countAllItems = async () => {
+  const result = await sql`SELECT COUNT(id) FROM shopping_list_items`;
+  return result[0].count;
+};
+
+export { checkIfListIsEmpty, countAllItems, create, collectById};

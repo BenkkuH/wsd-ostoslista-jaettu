@@ -1,6 +1,7 @@
 import { renderFile } from "https://deno.land/x/eta@v2.0.0/mod.ts";
 import * as listService from "../services/shoppingListService.js";
 import * as requestUtils from "../utils/requestUtils.js";
+import * as itemService from "../services/itemService.js";
 
 const responseDetails = {
   headers: { "Content-Type": "text/html;charset=UTF-8" },
@@ -27,6 +28,7 @@ const viewLists = async () => {
 const countLists = async () => {
   const data = {
     shopping_lists_sum: await listService.countShoppingLists(),
+    items_sum: await itemService.countAllItems(),
   };
   console.log(data);
   return new Response(await renderFile("index.eta", data), responseDetails);

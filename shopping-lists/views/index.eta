@@ -12,6 +12,6 @@ If there are no shopping lists in the database, instead of the above statistics,
 <%} else {%>
     <ul>
         <li>Shopping lists: <%= it.shopping_lists_sum %></li>
-        <li>Shopping list items: <%  %></li>
+        <li>Shopping list items: <%= it.items_sum %></li>
     </ul>
 <% } %>
