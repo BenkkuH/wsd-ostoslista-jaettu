@@ -43,7 +43,7 @@ const collectItem = async (request) => {
   console.log(shopping_list_id);
   await itemService.collectById(item_id);
 
-  return await requestUtils.redirectTo(`/lists/${shopping_list_id}}`);
+  return requestUtils.redirectTo(`/lists/${shopping_list_id}}`);
 };
 
 export { addItem, checkItems, collectItem };
