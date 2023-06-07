@@ -16,7 +16,6 @@ const addList = async (request) => {
   return requestUtils.redirectTo("/lists");
 };
 
-//Samaan tapaan kuin deactivateList funktiossa haetaan id ja annetaan parametrinä eteenpäin, tulisi tämäkin tehdä.
 const viewLists = async () => {
   const data = {
     shopping_lists: await listService.findAllActiveShoppingLists(),
@@ -30,7 +29,6 @@ const countLists = async () => {
     shopping_lists_sum: await listService.countShoppingLists(),
     items_sum: await itemService.countAllItems(),
   };
-  console.log(data);
   return new Response(await renderFile("index.eta", data), responseDetails);
 };
 

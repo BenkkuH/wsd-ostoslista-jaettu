@@ -27,20 +27,14 @@ const checkItems = async (request) => {
     shopping_list_items: await itemService.checkIfListIsEmpty(urlParts[2]),
     current_list: await listService.findCurrent(urlParts[2]),
   };
-  console.log("ollaan checkItemsissa")
-  console.log(data);
   return new Response(await renderFile("list.eta", data), responseDetails); 
 };
 
-//Ei tulosta consolilogeja
 const collectItem = async (request) => {
   const url = new URL(request.url);
   const urlParts = url.pathname.split("/");
   const shopping_list_id = urlParts[2];
   const item_id = urlParts[4];
-  console.log("ollaan collectItemissa");
-  console.log(item_id);
-  console.log(shopping_list_id);
   await itemService.collectById(item_id);
 
   return requestUtils.redirectTo(`/lists/${shopping_list_id}`);

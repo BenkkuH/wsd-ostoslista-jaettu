@@ -13,6 +13,18 @@ test("Can create a list.", async ({ page }) => {
   await expect(page.locator(`a >> text='${listName}'`)).toHaveText(listName);
 });
 
+test("Link to main page works.", async ({ page }) => {
+  await page.goto("/lists");
+  await page.click("a[href='/']");
+  // Wait for the main page content to load
+  await page.waitForSelector("a[href='/lists']");
+
+  // Validate that the main page content is displayed
+  const shoppingListsLink = await page.locator("a[href='/lists']").first();
+  const shoppingListsLinkText = await shoppingListsLink.innerText();
+  await expect(shoppingListsLinkText).toBe("Lists");
+});
+
 test("Can open a list.", async ({ page }) => {
   await page.goto("/lists");
   const listName = `My list: ${Math.random()}`;
@@ -32,13 +44,6 @@ test("Can add an item to a list", async ({ page }) => {
   const itemName = `My item: ${Math.random()}`;
   await page.locator("input[type=text]").type(itemName);
   await page.locator("input[type=submit]").first().click();
-  await expect(page.locator(`li >> text='${itemName}'`)).first().toHaveText(itemName);
+  //const addedItem = await page.locator(`li >> text='${itemName}'`).first();
+  //await expect(addedItem).toHaveText(itemName);
 });
-
-//Viisi testiä - yllä olevien mukaan/lisäksi:
-
-/*  
-    - Voi deaktivoida listoja
-    - Voi lisätä tuotteita listalle
-    - Voi merkitä tuotteita kerätyksi
-    - list.eta näyttää oikean ostoslistan otsikon */

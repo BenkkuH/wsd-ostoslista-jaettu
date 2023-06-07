@@ -10,7 +10,7 @@
   New shopping list name: <input type="text" name="name" />
   <input type="submit" value="Add a new shopping list!" />
 </form>
-<!--Tarkista löytääkö oikean taulukon pelkästään tällä (it.shopping_lists), vai vaatiiko jonkun 'id' parametrin?-->
+
 <% if (it.shopping_lists.length === 0) { %> 
     <p>No shopping lists yet.</p>
 <%} else {%>
