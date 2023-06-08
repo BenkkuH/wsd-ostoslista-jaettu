@@ -30,3 +30,14 @@ After creating a shopping list, clicking it's name redirects to path /lists/id w
 - ~~Coffee~~
 
 The page for adding items to the shopping list has a link `Shopping lists` back to the page for adding shopping lists.
+
+## Screenshots
+
+Main page and statistics
+![Main page](images/mainpage.PNG) 
+---
+Shopping list form and list of shopping lists
+![Shopping list form](images/listanlisays.PNG)
+---
+Form for adding items to a shopping list, and list of items.
+![Item form](images/ostoslista1.PNG)
