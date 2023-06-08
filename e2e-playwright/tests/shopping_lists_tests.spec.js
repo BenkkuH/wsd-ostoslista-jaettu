@@ -44,6 +44,4 @@ test("Can add an item to a list", async ({ page }) => {
   const itemName = `My item: ${Math.random()}`;
   await page.locator("input[type=text]").type(itemName);
   await page.locator("input[type=submit]").first().click();
-  //const addedItem = await page.locator(`li >> text='${itemName}'`).first();
-  //await expect(addedItem).toHaveText(itemName);
 });
