@@ -41,3 +41,9 @@ Shopping list form and list of shopping lists
 ---
 Form for adding items to a shopping list, and list of items.
 ![Item form](https://github.com/BenkkuH/wsd-ostoslista-jaettu/blob/main/images/ostoslista1.png?raw=true)
+
+
+## Authors
+
+- [@BenkkuH](https://www.github.com/BenkkuH) 
+- [@JohannnaM](https://www.github.com/JohannnaM) 
