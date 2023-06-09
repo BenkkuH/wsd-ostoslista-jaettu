@@ -34,10 +34,10 @@ The page for adding items to the shopping list has a link `Shopping lists` back 
 ## Screenshots
 
 Main page and statistics
-![Main page](.images/mainpage.PNG) 
+![Main page](https://github.com/BenkkuH/wsd-ostoslista-jaettu/blob/main/images/mainpage.png?raw=true) 
 ---
 Shopping list form and list of shopping lists
 ![Shopping list form](https://github.com/BenkkuH/wsd-ostoslista-jaettu/blob/main/images/listanlisays.png?raw=true)
 ---
 Form for adding items to a shopping list, and list of items.
-![Item form](.images/ostoslista1.PNG)
+![Item form](https://github.com/BenkkuH/wsd-ostoslista-jaettu/blob/main/images/ostoslista1.png?raw=true)
