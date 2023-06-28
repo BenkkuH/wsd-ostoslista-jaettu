@@ -14,7 +14,7 @@ Download the zipped project, and extract it to a new folder.
 
 ## Online deployment
 
-link to the online deployment here!
+https://wsd-shared-shopping-list.onrender.com/
 
 ## Usage
 
